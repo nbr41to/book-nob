@@ -14,7 +14,7 @@ export const Button: FC<Props> = ({
   return (
     <button
       className={clsx([
-        'w-full py-4 text-center text-sm',
+        'py-2 px-4 rounded',
         variant === 'primary' && 'bg-brawn text-white disabled:bg-brawn',
         variant === 'secondary' && 'border border-brawn bg-white text-brawn',
       ])}

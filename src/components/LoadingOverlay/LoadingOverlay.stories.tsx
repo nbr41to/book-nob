@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { LoadingLayout as Component } from './LoadingLayout';
+import { LoadingOverlay as Component } from './LoadingOverlay';
 
 const meta = {
   component: Component,

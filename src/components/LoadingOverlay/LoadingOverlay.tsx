@@ -4,7 +4,7 @@ type Props = {
   visible: boolean;
 };
 
-export const LoadingLayout: FC<Props> = ({ visible }) => {
+export const LoadingOverlay: FC<Props> = ({ visible }) => {
   if (!visible) return <></>;
 
   return (
