@@ -11,7 +11,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@prisma/client": "4.13.0",
+    "@prisma/client": "^4.14.1",
     "@types/node": "20.1.0",
     "@types/react": "18.2.5",
     "@types/react-dom": "18.2.4",
@@ -28,6 +28,7 @@
     "react-hook-form": "^7.43.9",
     "swr": "^2.1.5",
     "tailwindcss": "3.3.2",
+    "ts-node": "^10.9.1",
     "typescript": "5.0.4",
     "zod": "^3.21.4"
   },
@@ -44,10 +45,11 @@
     "eslint-plugin-storybook": "^0.6.12",
     "msw": "^1.2.1",
     "msw-storybook-addon": "^1.8.0",
-    "prisma": "^4.13.0",
+    "prisma": "^4.14.1",
     "storybook": "^7.0.9"
   },
   "prisma": {
-    "schema": "./src/prisma/schema.prisma"
+    "schema": "./src/prisma/schema.prisma",
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} ./src/prisma/seed.ts"
   }
 }

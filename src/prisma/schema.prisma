@@ -3,9 +3,10 @@ generator client {
 }
 
 datasource db {
-  provider     = "mysql"
-  url          = env("DATABASE_URL")
-  relationMode = "prisma"
+  provider          = "postgresql"
+  url               = env("DATABASE_PRISMA_URL") // uses connection pooling
+  directUrl         = env("DATABASE_URL_NON_POOLING") // uses a direct connection
+  shadowDatabaseUrl = env("DATABASE_URL_NON_POOLING") // used for migrations
 }
 
 model Author {
@@ -21,12 +22,10 @@ model Book {
   description String?
   content     String?
   price       Int
-  status      BookStatus
+  status      BookStatus @default(draft)
   authorId    Int        @map("author_id")
   author      Author     @relation(fields: [authorId], references: [id])
   imageUrl    String?    @map("image_url")
-
-  @@index([authorId]) // Planet ScaleでPrismaを使う場合は、インデックスを明示的に定義する必要がある
 }
 
 enum BookStatus {
